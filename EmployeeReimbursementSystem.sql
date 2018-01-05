@@ -38,3 +38,6 @@ alter table pending_request
 alter table pending_request
     modify status default 'Pending';
 
+
+
+select * from resolved_request;

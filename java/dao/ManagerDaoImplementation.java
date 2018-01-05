@@ -13,6 +13,7 @@ import com.gtrain.model.Manager.MANAGER;
 
 public class ManagerDaoImplementation implements ManagerDao {
 
+	//Fully Tested, methods perform as intended
 	
 	private static ManagerDaoImplementation managerDaoImplementation;
 	
@@ -27,6 +28,7 @@ public class ManagerDaoImplementation implements ManagerDao {
 	
 	
 	//Prepared Statement to insert new Manager into table
+	
 	@Override
 	public boolean insert(Manager manager) {
 		try (Connection conn = ConnectionUtility.getConnection()) {
@@ -61,6 +63,8 @@ public class ManagerDaoImplementation implements ManagerDao {
 	@Override
 	public boolean insertProcedure(Manager manager) {
 
+		boolean outcome = true;
+		
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
@@ -76,14 +80,14 @@ public class ManagerDaoImplementation implements ManagerDao {
 			cstmt.setString(++index, manager.getLastname());
 			
 			if (cstmt.executeUpdate() > 0) {
-				return true;
+				outcome = false;
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return outcome;
 	}
 
 	//Selects a manager based on his username

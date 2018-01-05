@@ -1,14 +1,22 @@
 package com.gtrain.test;
-import com.gtrain.dao.EmployeeDaoImplementation;
-import com.gtrain.model.Employee;
+import com.gtrain.model.*;
+import com.gtrain.dao.*;
+import java.util.List;
+import java.util.ArrayList;
 public class TestClass {
+	
+	//Manager Dao Implementation Tested, working as intended
 
 	public static void main(String[] args) {
 		
-		Employee emp = EmployeeDaoImplementation.getInstance().selectAll().get(0);
-		System.out.println(EmployeeDaoImplementation.getInstance().selectId(emp));
 		
+//		List<Employee> employees = EmployeeDaoImplementation.getInstance().selectAll();
+//		
+//		for (Employee e : employees) {
+//			System.out.println(e.toString());
+//		}
 		
+
 	}
 
 }

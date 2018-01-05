@@ -48,13 +48,14 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 		return false;
 	}
 	
+	//this works properly
 	@Override
 	public boolean insertProcedure(Employee employee) {
 
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
-			String query = "CALL INSERT_EMPLOYEE(?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			String query = "{CALL INSERT_EMPLOYEE(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 			
 			CallableStatement p = conn.prepareCall(query);
 			

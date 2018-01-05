@@ -11,6 +11,12 @@ public class ResolvedReq {
 	private String resolvedStatus;
 	private String timeRequestWasResolved;
 	
+	public ResolvedReq(int pendingRequestId, int resolvingManagerId, String resolvedStatus) {
+		this.pendingRequestId = pendingRequestId;
+		this.resolvingManagerId = resolvingManagerId;
+		this.resolvedStatus = resolvedStatus;
+	}
+	
 	public ResolvedReq(int resId, int pendId, int mId, String mName, String resStatus, String timeResolved) {
 		this.resolvedRequestId = resId;
 		this.pendingRequestId = pendId;

@@ -63,7 +63,7 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			
 			int index = 0;
 			
-			String query = "EXEC INSERT_PENDING_REQUEST(?, ?, ?)";
+			String query = "{CALL INSERT_PENDING_REQUEST(?, ?, ?)}";
 			
 			CallableStatement p = conn.prepareCall(query);
 			

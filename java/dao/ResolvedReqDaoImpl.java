@@ -14,6 +14,19 @@ import com.gtrain.util.ConnectionUtility;
 
 public class ResolvedReqDaoImpl implements ResolvedReqDao {
 
+	private static ResolvedReqDaoImpl resolvedReqDaoImpl;
+	
+	private ResolvedReqDaoImpl() {}
+	
+	public static ResolvedReqDaoImpl getInstance() {
+		if (resolvedReqDaoImpl == null) {
+			resolvedReqDaoImpl = new ResolvedReqDaoImpl();
+		}
+		return resolvedReqDaoImpl;
+	}
+	
+	
+	
 	@Override
 	public boolean insert(ResolvedReq resolved) {
 
@@ -49,7 +62,7 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
-			String query = "EXEC insert_resolved_request(?, ?, ?, ?)";
+			String query = "{CALL insert_resolved_request(?, ?, ?)}";
 			
 			CallableStatement c = conn.prepareCall(query);
 			

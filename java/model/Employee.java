@@ -171,6 +171,16 @@ public class Employee implements Serializable {
 
 
 
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", email=" + email + ", address=" + address + ", city=" + city + ", state=" + state + ", zipcode="
+				+ zipcode + "]";
+	}
+
+
+
+
 	// Values after password are from Employee Info Table
 	// This is the order used after employee inner join employee_info on e_id = e_info_id;
 	public enum EMPLOYEE {
