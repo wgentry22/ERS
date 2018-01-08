@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles/employee.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<title>Create Reimbursement Request</title>
+</head>
+<body class="container">
+	
+	
+	<div id="createPendingRequest" class="row well">
+		<form method="post" action="../createRequest.do" >
+		<h2 id="pendingRequestHeader">Create Reimbursement Request</h2>
+		<div class="form-group row">
+		<div class="col-md-1">
+			<label for="requestAmount">Amount</label>
+		</div>
+		<div class="col-md-3">
+			<input id="requestAmount" type="text" class="form-control" required placeholder="$XXXX.XX"/>
+		</div>
+		<div class="col-md-1">
+			<label for="requestReason">Reason</label>
+		</div>
+		<div class="col-md-6">
+			<input id="requestReason" type="text" class="form-control" required placeholder="Brief Description" />
+		</div>
+		<div class="col-md-1">
+			<input id="submitRequest" type="button" class="btn btn-primary form-control" value="Submit" />
+		</div>
+		</div>
+		</form>
+	</div>
+	
+	
+	
+	
+</body>
+</html>

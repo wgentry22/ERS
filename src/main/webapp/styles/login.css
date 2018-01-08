@@ -1,0 +1,23 @@
+#loginForm {
+
+	font-family: 'Raleway', sans-serif;
+	margin: 150px 350px;
+	align: center;
+	z-index=1;
+	
+}
+
+#loginHeader {
+	
+	text-align: center;
+	margin-bottom: 5%;
+	
+}
+
+#loginButton {
+	margin-left: 35%;
+}
+
+body {
+	background-image: url("../img/snow-morning.jpg");
+}

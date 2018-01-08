@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles/login.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet">
+<title>ERS Log In</title>
+</head>
+<body id="background" class="container">
+
+	<div class=" form-group row">
+		<form method="post" action="login.do">
+			<div id="loginForm" class="well form-group">
+				<h2 id="loginHeader">Employee Reimbursement System Log In</h2>
+				<input name="loginUsername" type="text" class="form-control" placeholder="Username"required /> 
+				<input name="loginPassword" type="password" class="form-control" placeholder="Password" required /> 
+				<br> 
+				<input	id="loginButton" type="submit" value="Log In" class="btn btn-primary" /> 
+				<input id="loginReset" type="reset"	value="Reset" class="btn btn-danger" />
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
