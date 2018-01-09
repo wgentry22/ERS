@@ -1,21 +1,13 @@
 package com.gtrain.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.SQLException;
 
-import com.gtrain.model.Manager;
-import com.gtrain.ajax.Role;
-import com.gtrain.dao.ManagerDaoImplementation;
-import com.gtrain.util.ConnectionUtility;
 
 
 

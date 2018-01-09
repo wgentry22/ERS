@@ -12,6 +12,20 @@
 <body class="container">
 <%@ page import="com.gtrain.model.Employee" %>
 <% Employee employee = (Employee) request.getSession().getAttribute("authorizedUser"); %>
+
+<div class="navbar">
+			<div class="navbar-header">
+				<ul class="nav navbar-nav" >
+					<li><a  href="http://localhost:8080/ERS/html/employee.jsp" onclick="myHome();">Home</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
+					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
+					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
+					<li><a href="http://localhost:8080/ERS/logout" >Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+
+
 	<div id="employeeInfo">
 		<h2>Employee Information</h2>
 		<div class="form-row ">
@@ -27,27 +41,30 @@
 			</div>
 			<div id="updateEmployeeInfoForm" class="invisible well col-md-8">
 				<div class="form-group">
-					<form  method="post" action="updateEmployeeInformation.do">
-						<label for="updateName">Name</label>
-						<input name="updateName" id="updateName" type="text" class="form-control" placeholder="Full Name, seperated by a space" 
-						value="<%= employee.getFullname() %>" />
-						<label for="updateEmail">Email</label>
-						<input name="updateEmail" id="updateEmail" type="email" class="form-control" placeholder="Email Address"  
+					<form method="post" action="employee.jsp">
+						<label for="firstname">First Name</label>
+						<input name="firstname" id="firstname" type="text" class="form-control" placeholder="Full Name, seperated by a space" 
+						value="<%= employee.getFirstname() %>" />
+						<label for="lastname">Last Name</label>
+						<input name="lastname" id="lastname" type="text" class="form-control" placeholder="Full Name, seperated by a space" 
+						value="<%= employee.getLastname() %>" />
+						<label for="email">Email</label>
+						<input name="email" id="email" type="email" class="form-control" placeholder="Email Address"  
 						value="<%= employee.getEmail() %>"/>
-						<label for="updateAddress">Address</label>
-						<input name="updateAddress" id="updateAddress" type="text" class="form-control" placeholder="Street Address"  
+						<label for="address">Address</label>
+						<input name="address" id="address" type="text" class="form-control" placeholder="Street Address"  
 						value="<%= employee.getAddress() %>"/>
-						<label for="updateCity">City</label>
-						<input name="updateCity" id="updateCity" type="text" class="form-control" placeholder="City"  
+						<label for="city">City</label>
+						<input name="city" id="city" type="text" class="form-control" placeholder="City"  
 						value="<%= employee.getCity() %>"/>
-						<label for="updateState">State</label>
-						<input name="updateState" id="updateState" type="text" class="form-control" placeholder="State"  
+						<label for="state">State</label>
+						<input name="state" id="state" type="text" class="form-control" placeholder="State"  
 						value="<%= employee.getState() %>"/>
-						<label for="updateZipcode">Zip Code</label>
-						<input name="updateZipcode" id="updateZipcode" type="text" class="form-control" placeholder="Zip"  
+						<label for="zipcode">Zip Code</label>
+						<input name="zipcode" id="zipcode" type="text" class="form-control" placeholder="Zip"  
 						value="<%= employee.getZipcode() %>"/>
 						<br>
-						<input id="btnUpdateEmployeeInformationConfirmation"  type="button" class="btn btn-danger" value="Update" />
+						<input id="btnUpdateEmployeeInformationConfirmation"  type="submit" class="btn btn-danger" value="Update" />
 					</form>
 				</div>
 			</div>

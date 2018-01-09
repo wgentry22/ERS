@@ -10,22 +10,28 @@
 <title>Employee ERS Portal</title>
 </head>
 <body class="container">
-<%@ page import="java.util.List" %>
-<%@ page import="com.gtrain.model.Employee" %>
-<%@ page import="com.gtrain.model.PendingReq" %>
-<%@ page import="com.gtrain.service.EmployeeService" %>
-<%@ page import="com.gtrain.dao.PendingReqDaoImpl" %>
-<% Employee employee = (Employee) request.getSession().getAttribute("authorizedUser"); %>
+
 
 
 	<div class="row">
-		<h2>Welcome to the Employee Reimbursement Portal, <%= employee.getFirstname() %> </h2>
+		<h2>Welcome to the Employee Reimbursement Portal</h2>
 		
-		<a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a>
+		<div class="navbar">
+			<div class="navbar-header">
+				<ul class="nav navbar-nav" >
+					<li><a  href="http://localhost:8080/ERS/html/employee.jsp" onclick="myHome();">Home</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
+					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
+					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
+					<li><a href="http://localhost:8080/ERS/logout" >Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+		
 		
 	</div>
 	
-	
+	<h2>My Pending Requests</h2>
 	<table class="table table-bordered table-striped table-hover">
 		<thead class="table-header">
 			<tr>

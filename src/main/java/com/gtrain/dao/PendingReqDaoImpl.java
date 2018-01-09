@@ -117,7 +117,7 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			c.printStackTrace();
 		}
 		
-		return null;
+		return new PendingReq();
 	}
 	
 
@@ -157,7 +157,7 @@ public class PendingReqDaoImpl implements PendingReqDao {
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
-			String query = "select * from pending_request where e_id = ?";
+			String query = "select p.* from pending_request p inner join resolved_request r on p.pend_req_id <> r.pend_req_id where p.e_id = ?";
 			
 			PreparedStatement p = conn.prepareStatement(query);
 			

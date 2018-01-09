@@ -9,6 +9,12 @@ public class PendingReq {
 	private String timeRequestWasCreated;
 	private String requestStatus;
 	
+	public PendingReq() {}
+	
+	public PendingReq(int i) {
+		this.requestId = i;
+	}
+	
 	public PendingReq(int empId, String amount, String reason) {
 		this.requestingEmployeeId = empId;
 		this.requestAmount = amount;
@@ -27,6 +33,7 @@ public class PendingReq {
 	public int getRequestId() {
 		return requestId;
 	}
+	
 
 	public int getRequestingEmployeeId() {
 		return requestingEmployeeId;

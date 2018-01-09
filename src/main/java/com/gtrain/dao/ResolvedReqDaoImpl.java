@@ -158,7 +158,7 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
-			String query = "select res_req_id, pend_req_id, res_m_id, res_m_name, res_status, resolved_at"
+			String query = "select r.res_req_id, r.pend_req_id, r.res_m_id, r.res_m_name, r.res_status, r.resolved_at"
 					+ " from pending_request p inner join resolved_request r on p.pend_req_id = r.pend_req_id "
 					+ "where p.e_id = ?";
 			

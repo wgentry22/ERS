@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import com.gtrain.controller.EmployeeController;
 import com.gtrain.controller.LoginController;
 import com.gtrain.controller.ManagerController;
+import com.gtrain.controller.PendingRequestController;
+import com.gtrain.controller.ResolvedRequestController;
 
 public class MasterDispatcher {
 
@@ -13,14 +15,19 @@ public class MasterDispatcher {
 		switch(req.getRequestURI()) {
 		case "/ERS/html/login.do":
 			return LoginController.login(req);
-		case "/ERS/employee.do":
+		case "/ERS/html/employee.do":
 			return EmployeeController.home(req);
-		case "/ERS/manager.do":
+		case "/ERS/html/manager.do":
 			return ManagerController.home(req);
 		case "/ERS/html/employeeInfo.do":
 			return EmployeeController.info(req);
 		case "/ERS/html/updateEmployeeInformation.do":
 			return EmployeeController.update(req);
+		case "/ERS/html/createPendingRequest.do":
+			return PendingRequestController.create(req);
+		case "/ERS/html/resolvedRequests.do":
+			return ResolvedRequestController.show(req);
+		
 		default: return "404.jsp";
 		}
 	}

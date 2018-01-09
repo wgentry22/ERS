@@ -16,29 +16,25 @@ function showUpdateInfo() {
 	}
 }
 
+
+
 function updateEmployee() {
 	var xhr = new XMLHttpRequest();
-	var stringifiedEmployee;
-	var updatedEmployee = new Object();
-	updatedEmployee.updateName = document.getElementById("updateName").value;
-	updatedEmployee.updateEmail = document.getElementById("updateEmail").value;
-	updatedEmployee.updateAddress = document.getElementById("updateAddress").value;
-	updatedEmployee.updateCity = document.getElementById("updateCity").value;
-	updatedEmployee.updateState = document.getElementById("updateState").value;
-	updatedEmployee.updateZip = document.getElementById("updateZipcode").value;
+	var updated = new Object();
+	
+	updated.firstname = document.getElementById("firstname").value;
+	updated.lastname = document.getElementById("lastname").value;
+	updated.email = document.getElementById("email").value;
+	updated.address = document.getElementById("address").value;
+	updated.city = document.getElementById("city").value;
+	updated.state = document.getElementById("state").value;
+	updated.zipcode = document.getElementById("zipcode").value;
 
-	stringifiedEmployee = JSON.stringify(updatedEmployee);
+	var stringifiedUpdatedEmployee = JSON.stringify(updated);
+	console.log(stringifiedUpdatedEmployee);
 	
 	xhr.open("POST", "http://localhost:8080/ERS/html/updateEmployeeInformation.do", true);
 	xhr.setRequestHeader("Content-Type","application/json");
 
-	xhr.send(stringifiedEmployee);
+	xhr.send(stringifiedUpdatedEmployee);
 }
-
-
-
-
-
-
-
-

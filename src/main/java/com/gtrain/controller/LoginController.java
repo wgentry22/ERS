@@ -27,7 +27,7 @@ public class LoginController {
 			if (ManagerService.getInstance().login(new Manager(username, password)) instanceof Manager) {
 				authorizedManager = ManagerService.getInstance().getManager(new Manager(username, password));
 				req.getSession().setAttribute("authorizedUser", authorizedManager);
-				return "/manager.do";
+				return "/html/manager.do";
 			} else {
 				return "login.html";
 			}
@@ -37,10 +37,14 @@ public class LoginController {
 				authorizedEmployee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username(username).build());
 				req.getSession().setAttribute("authorizedUser", authorizedEmployee);
 				
-				return "/employee.do";
+				return "/html/employee.do";
 			} else {
 				return "login.html";
 			}
 		}		
 	}
+	
+	
+	
+	
 }

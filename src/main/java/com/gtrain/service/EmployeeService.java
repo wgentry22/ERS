@@ -36,6 +36,10 @@ public class EmployeeService {
 		return EmployeeDaoImplementation.getInstance().selectAll();
 	}
 	
+	public int getEmployeeId(Employee employee) {
+		return EmployeeDaoImplementation.getInstance().selectId(employee);
+	}
+	
 	public Employee login(Employee employee) {
 		Employee authorized = EmployeeDaoImplementation.getInstance().select(employee);
 		if (authorized.getPassword().equals(EmployeeDaoImplementation.getInstance().getEmployeeHash(employee))) {

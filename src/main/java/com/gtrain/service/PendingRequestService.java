@@ -20,7 +20,16 @@ public class PendingRequestService {
 	}
 	
 	
+	public List<PendingReq> selectAll() {
+		return PendingReqDaoImpl.getInstance().selectAll();
+	}
+	
+	
 	public List<PendingReq> selectAllByEmployee(Employee employee) {
 		return PendingReqDaoImpl.getInstance().selectAllByEmployee(employee);
+	}
+	
+	public boolean insert(PendingReq pending) {
+		return PendingReqDaoImpl.getInstance().insertProcedure(pending);
 	}
 }

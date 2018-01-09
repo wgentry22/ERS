@@ -1,9 +1,9 @@
 package com.gtrain.test;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gtrain.dao.PendingReqDaoImpl;
-import com.gtrain.model.Employee;
-import com.gtrain.service.EmployeeService;
+
+import com.gtrain.dao.*;
+import com.gtrain.model.*;
+import com.gtrain.service.*;
+
 public class TestClass {
 	
 	//Manager Dao Implementation Tested, working as intended
@@ -32,17 +32,36 @@ public class TestClass {
 //				.build();
 		
 
-		Employee employee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username("gtrainEmp").build());
+//		Employee employee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username("gtrainEmp").build());
+//		
+//		ObjectMapper mapper = new ObjectMapper();
+//		try {
+//			System.out.println(mapper.writeValueAsString(PendingReqDaoImpl.getInstance().selectAllByEmployee(employee)));
+//		} catch (JsonProcessingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			System.out.println(mapper.writeValueAsString(PendingReqDaoImpl.getInstance().selectAllByEmployee(employee)));
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Employee employee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username("gtrainEmp").build());
+//		
+//		PendingReq test = new PendingReq(28);
+//		
+//		PendingReq p = PendingReqDaoImpl.getInstance().select(test);
+//		
+//		Manager test2 = new Manager();
+//		test2.setUsername("gtrainnn");
+//		
+//		Manager m = ManagerDaoImplementation.getInstance().select(test2);
+
+
+		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAllByEmployee(employee)) {
+			System.out.println(r);
 		}
 		
 		
+//		for (Manager m : ManagerDaoImplementation.getInstance().selectAll()) {
+//			System.out.println(m);
+//		}
 		
 	}
 

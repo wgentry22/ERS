@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>com.gtrain.ajax.AjaxServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.gtrain.servlets.LogoutServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MasterServlet</servlet-name>
   	<url-pattern>*.do</url-pattern>
@@ -23,6 +29,10 @@
   <servlet-mapping>
   	<servlet-name>AjaxServlet</servlet-name>
   	<url-pattern>*.ajax</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/logout</url-pattern>
   </servlet-mapping>
 
 </web-app>
