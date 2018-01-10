@@ -20,6 +20,18 @@ public class ResolvedRequestService {
 		return rrs;
 	}
 	
+	public ResolvedReq select(ResolvedReq resolved) {
+		return ResolvedReqDaoImpl.getInstance().select(resolved);
+	}
+	
+	public boolean insert(ResolvedReq resolved) {
+		return ResolvedReqDaoImpl.getInstance().insertProcedure(resolved);
+	}
+	
+	public List<ResolvedReq> selectAll() {
+		return ResolvedReqDaoImpl.getInstance().selectAll();
+	}
+	
 	public List<ResolvedReq> selectAllByEmployee(Employee employee) {
 		return ResolvedReqDaoImpl.getInstance().selectAllByEmployee(employee);
 	}

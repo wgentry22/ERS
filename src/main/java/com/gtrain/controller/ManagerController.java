@@ -14,6 +14,7 @@ import com.gtrain.service.PendingRequestService;
 public class ManagerController {
 
 	public static String home(HttpServletRequest req) {
+		req.getSession().setAttribute("pendingRequestByEmployee", null);
 		return "/html/manager.jsp";
 	}
 	

@@ -37,7 +37,7 @@ public class PendingRequestController {
 			PendingRequestService.getInstance().insert(pending);
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		

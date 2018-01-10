@@ -31,6 +31,8 @@ public class MasterDispatcher {
 			return ManagerController.showEmployees(req);
 		case "/ERS/html/goToEmployeeDetail.do":
 			return ManagerController.goToEmployee(req);
+		case "/ERS/html/managerCreateResolved.do":
+			return ResolvedRequestController.create(req);
 		
 		default: return "404.jsp";
 		}

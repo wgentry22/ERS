@@ -23,6 +23,9 @@ public class AjaxHelper {
 			return EmployeeController.all(request, response);
 		case "/ERS/employeeDetailPendingRequest.ajax":
 			return PendingRequestController.populateEmployeeDetail(request, response);
+		case "/ERS/populateManagerResolvedRequestTable.ajax":
+			return ResolvedRequestController.all(request, response);
+			
 		default:
 			return new AjaxMessage("Not Implemented");
 		}

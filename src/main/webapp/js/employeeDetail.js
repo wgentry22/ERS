@@ -66,8 +66,16 @@ function resolve(row) {
 	var rowInTable = row.target.parentNode.parentNode;
 	var decision = window.confirm("Are you sure you want to RESOLVE this request?");
 	if (decision == true) {
+		var resolvedRequest = new Object();
+		resolvedRequest.pendingRequestId = rowInTable.firstChild.textContent;
+		resolvedRequest.resolvedStatus = "Resolved";
 		
-		console.log(rowInTable.firstChild.textContent);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://localhost:8080/ERS/html/managerCreateResolved.do");
+		xhr.send(JSON.stringify(resolvedRequest));
+		
+		
+		
 	} else {
 		console.log("Do not create resolved request");
 	}
@@ -77,11 +85,17 @@ function resolve(row) {
 
 
 
-function deny() {
+function deny(row) {
 	var rowInTable = row.target.parentNode.parentNode;
 	var decision = window.confirm("Are you sure you want to DENY this request?");
 	if (decision == true) {
-		console.log(rowInTable.firstChild.textContent);
+		var resolvedRequest = new Object();
+		resolvedRequest.pendingRequestId = rowInTable.firstChild.textContent;
+		resolvedRequest.resolvedStatus = "Denied";
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "http://localhost:8080/ERS/html/managerCreateResolved.do");
+		xhr.send(JSON.stringify(resolvedRequest));
 	} else {
 		console.log("Do not create resolved request");
 	}
@@ -90,7 +104,29 @@ function deny() {
 
 
 
+function myEmployees() {
+	var xhr = XMLHttpRequest();
+	xhr.open("POST", "http://localhost:8080/ERS/html/allEmployees.do");
+	xhr.send();
+	
+}
 
+function resolvedRequests() {
+	var xhr = XMLHttpRequest();
+	xhr.open("POST", "http://localhost:8080/ERS/html/allResolvedRequests.jsp");
+	xhr.send();
+}
+
+function home() {
+	var xhr = XMLHttpRequest();
+	xhr.open("POST", "http://localhost:8080/ERS/manager.do");
+}
+
+function logout() {
+	xhr = new XMLHttpRequest();
+	xhr.open("POST", "http://localhost:8080/ERS/logout.do");
+	xhr.send();
+}
 
 
 

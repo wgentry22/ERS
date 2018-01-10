@@ -62,7 +62,11 @@ public class TestClass {
 //		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAllByEmployee(employee)) {
 //			System.out.println(r);
 //		}
+
 		
+//		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAll()) {
+//			System.out.println(r);
+//		}
 		
 //		for (Manager m : ManagerDaoImplementation.getInstance().selectAll()) {
 //			System.out.println(m);

@@ -23,7 +23,7 @@
 					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/logout" >Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/logout.do" onclick="logout();">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
