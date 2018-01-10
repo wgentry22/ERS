@@ -124,7 +124,7 @@ public class PendingReqDaoImpl implements PendingReqDao {
 	@Override
 	public List<PendingReq> selectAll() {
 		try (Connection conn = ConnectionUtility.getConnection()) {
-			String query = "select * from pending_request order by e_id";
+			String query = "select p.* from pending_request p inner join resolved_request r on p.pend_req_id <> r.pend_req_id";
 			
 			PreparedStatement p = conn.prepareStatement(query);
 			

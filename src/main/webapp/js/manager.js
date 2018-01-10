@@ -8,6 +8,7 @@ function populateAllCurrentRequests() {
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && xhr.status == 200) {
 			var ajaxObject = JSON.parse(xhr.responseText);
+			console.log(ajaxObject);
 			addRows(ajaxObject);
 		}
 	};
@@ -34,6 +35,18 @@ function addRows(ajaxObject) {
 		tr.appendChild(tdRequestReason);
 		tr.appendChild(tdTimeCreated);
 		
-		document.getElementById("tblPendingRequests").appendChild(tr);
+		document.getElementById("tblCurrentPendingRequests").appendChild(tr);
 	}
 };
+
+function myEmployees() {
+	var xhr = XMLHttpRequest();
+	xhr.open("POST", "http://localhost:8080/ERS/html/allEmployees.do");
+	xhr.send();
+	
+}
+
+
+
+
+

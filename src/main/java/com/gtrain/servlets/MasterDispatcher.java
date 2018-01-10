@@ -27,6 +27,10 @@ public class MasterDispatcher {
 			return PendingRequestController.create(req);
 		case "/ERS/html/resolvedRequests.do":
 			return ResolvedRequestController.show(req);
+		case "/ERS/html/allEmployees.do":
+			return ManagerController.showEmployees(req);
+		case "/ERS/html/goToEmployeeDetail.do":
+			return ManagerController.goToEmployee(req);
 		
 		default: return "404.jsp";
 		}

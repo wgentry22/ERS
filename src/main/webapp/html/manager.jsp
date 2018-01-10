@@ -12,7 +12,13 @@
 	<div class="row">
 		<h2>Welcome to the Manager Home Page</h2>
 		
-	
+	<div class="navbar">
+			<div class="navbar-header">
+				<ul class="nav navbar-nav" >
+					<li><a  href="http://localhost:8080/ERS/html/allEmployees.jsp" onclick="myEmployees();">My Employees</a></li>
+				</ul>
+			</div>
+		</div>
 	<h2>Current Pending Requests</h2>
 	<table class="table table-bordered table-striped table-hover">
 		<thead class="table-header">

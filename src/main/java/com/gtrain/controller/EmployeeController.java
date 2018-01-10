@@ -1,9 +1,10 @@
 package com.gtrain.controller;
 
-
+import java.util.List;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gtrain.model.Employee;
@@ -58,4 +59,14 @@ public class EmployeeController {
 	}
 	
 	
+	
+	public static List<Employee> all(HttpServletRequest req, HttpServletResponse resp) {
+		return EmployeeService.getInstance().getAllEmployees();
+	}
 }
+
+
+
+
+
+

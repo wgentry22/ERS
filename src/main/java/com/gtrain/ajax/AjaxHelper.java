@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.gtrain.controller.ResolvedRequestController;
 import com.gtrain.controller.PendingRequestController;
 import com.gtrain.controller.ManagerController;
+import com.gtrain.controller.EmployeeController;
 
 
 public class AjaxHelper {
@@ -18,6 +19,10 @@ public class AjaxHelper {
 			return ResolvedRequestController.populate(request, response);
 		case "/ERS/populateManagerPendingRequestTable.ajax":
 			return ManagerController.allRequests(request, response);
+		case "/ERS/allEmployees.ajax":
+			return EmployeeController.all(request, response);
+		case "/ERS/employeeDetailPendingRequest.ajax":
+			return PendingRequestController.populateEmployeeDetail(request, response);
 		default:
 			return new AjaxMessage("Not Implemented");
 		}

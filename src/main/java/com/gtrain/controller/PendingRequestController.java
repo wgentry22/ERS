@@ -16,6 +16,10 @@ public class PendingRequestController {
 		return PendingRequestService.getInstance().selectAllByEmployee((Employee) request.getSession().getAttribute("authorizedUser"));
 	}
 	
+	public static Object populateEmployeeDetail(HttpServletRequest request, HttpServletResponse response) {
+		return PendingRequestService.getInstance().selectAllByEmployee((Employee) request.getSession().getAttribute("pendingRequestByEmployee"));
+	}
+	
 	public static String create(HttpServletRequest req) {
 		
 		try {

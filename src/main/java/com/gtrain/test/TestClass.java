@@ -54,9 +54,14 @@ public class TestClass {
 //		Manager m = ManagerDaoImplementation.getInstance().select(test2);
 
 
-		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAllByEmployee(employee)) {
-			System.out.println(r);
+		for (PendingReq p : PendingRequestService.getInstance().selectAll()) {
+			System.out.println(p);
 		}
+		
+		
+//		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAllByEmployee(employee)) {
+//			System.out.println(r);
+//		}
 		
 		
 //		for (Manager m : ManagerDaoImplementation.getInstance().selectAll()) {
