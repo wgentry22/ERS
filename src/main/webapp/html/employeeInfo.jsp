@@ -12,7 +12,7 @@
 <body class="container">
 <%@ page import="com.gtrain.model.Employee" %>
 <% Employee employee = (Employee) request.getSession().getAttribute("authorizedUser"); %>
-
+<h2>Employee Information</h2>
 <div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
@@ -27,7 +27,7 @@
 
 
 	<div id="employeeInfo">
-		<h2>Employee Information</h2>
+		<h2>My Information</h2>
 		<div class="form-row ">
 			<div id="employeeInfoDisplay" class="well col-md-4">
 				<h4>Name: <%= employee.getFullname() %></h4>

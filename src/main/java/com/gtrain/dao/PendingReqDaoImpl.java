@@ -124,7 +124,7 @@ public class PendingReqDaoImpl implements PendingReqDao {
 	@Override
 	public List<PendingReq> selectAll() {
 		try (Connection conn = ConnectionUtility.getConnection()) {
-			String query = "select p.* from pending_request p inner join resolved_request r on p.pend_req_id <> r.pend_req_id";
+			String query = "select p.* from pending_request p left join resolved_request r on p.pend_req_id = r.pend_req_id where r.res_req_id is null";
 			
 			PreparedStatement p = conn.prepareStatement(query);
 			
@@ -157,7 +157,7 @@ public class PendingReqDaoImpl implements PendingReqDao {
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
-			String query = "select p.* from pending_request p inner join resolved_request r on p.pend_req_id <> r.pend_req_id where p.e_id = ?";
+			String query = "select p.* from pending_request p left join resolved_request r on p.pend_req_id = r.pend_req_id where r.res_req_id is null and p.e_id = ?";
 			
 			PreparedStatement p = conn.prepareStatement(query);
 			
