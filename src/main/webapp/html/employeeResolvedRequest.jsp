@@ -19,7 +19,7 @@
 					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/logout" onclick="logout();">Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/html/login.html">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -30,7 +30,9 @@
 		<thead class="table-header">
 			<tr>
 				<th scope="col">Resolved Request ID</th>
-				<th scope="col">Pending Request Id</th>
+				<th scope="col">Request Reason</th>
+				<th scope="col">Request Amount</th>
+				<th scope="col">Time Created</th>
 				<th scope="col">Status</th>
 				<th scope="col">Resolving Manager</th>
 				<th scope="col">Time Resolved</th>
@@ -44,5 +46,6 @@
 </div>
 
 <script type="text/javascript" src="../js/employeeResolvedRequests.js"></script>
+<script type="text/javascript" src="../js/employeeRouting.js"></script>
 </body>
 </html>

@@ -2,6 +2,9 @@ package com.gtrain.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +16,8 @@ import com.gtrain.util.ConnectionUtility;
 
 public class EmployeeDaoImplementation implements EmployeeDao {
 
+	private static Logger logger = Logger.getLogger(EmployeeDaoImplementation.class);
+	
 	private static EmployeeDaoImplementation employeeDaoImplementation;
 	
 	private EmployeeDaoImplementation() {}
@@ -52,8 +57,11 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e);
+			
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.error(c);
 		}
 
 		return false;
@@ -91,8 +99,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.error(c);
 		}
 		
 		return new Employee.EmployeeBuilder().build();
@@ -132,8 +142,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.warn(e.getMessage());
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.warn(c.getMessage());
 		}
 		return false;
 	}
@@ -168,8 +180,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 			return employeeList;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.error(c);
 		}
 		
 		
@@ -196,8 +210,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.error(c);
 		}
 		
 		return -1;	//return value of -1 implies Employee is not found
@@ -224,8 +240,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.error(c);
 		}
 		
 		return null;

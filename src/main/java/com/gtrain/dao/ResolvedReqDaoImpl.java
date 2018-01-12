@@ -1,12 +1,15 @@
 package com.gtrain.dao;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.CallableStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import com.gtrain.model.Employee;
 import com.gtrain.model.ResolvedReq;
 import com.gtrain.model.ResolvedReq.RESOLVED;
@@ -14,6 +17,8 @@ import com.gtrain.util.ConnectionUtility;
 
 public class ResolvedReqDaoImpl implements ResolvedReqDao {
 
+	private static Logger logger = Logger.getLogger(ResolvedReqDaoImpl.class);
+	
 	private static ResolvedReqDaoImpl resolvedReqDaoImpl;
 	
 	private ResolvedReqDaoImpl() {}
@@ -50,8 +55,10 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		
@@ -80,8 +87,10 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		
@@ -116,8 +125,10 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		return null;
 	}
@@ -146,8 +157,10 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 			return resolvedRequests;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		return null;
 	}
@@ -158,7 +171,7 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 		try (Connection conn = ConnectionUtility.getConnection()) {
 			int index = 0;
 			
-			String query = "select r.res_req_id, r.pend_req_id, r.res_m_id, r.res_m_name, r.res_status, r.resolved_at"
+			String query = "select r.res_req_id, r.pend_req_id, r.res_m_id, r.res_m_name, r.res_status, r.resolved_at, p.req_reason, p.req_amount, p.created_at"
 					+ " from pending_request p inner join resolved_request r on p.pend_req_id = r.pend_req_id "
 					+ "where p.e_id = ?";
 			
@@ -171,18 +184,24 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 			List<ResolvedReq> resolvedReqByEmployee = new ArrayList<ResolvedReq>();
 			
 			while (rs.next()) {
-				resolvedReqByEmployee.add(new ResolvedReq(rs.getInt(RESOLVED.ID.ordinal()),
+				resolvedReqByEmployee.add(new ResolvedReq(
+						rs.getInt(RESOLVED.ID.ordinal()),
 						rs.getInt(RESOLVED.PENDID.ordinal()),
 						rs.getInt(RESOLVED.MANAGERID.ordinal()),
 						rs.getString(RESOLVED.MANAGERNAME.ordinal()),
 						rs.getString(RESOLVED.STATUS.ordinal()),
-						rs.getString(RESOLVED.RESOLVED_AT.ordinal())));
+						rs.getString(RESOLVED.RESOLVED_AT.ordinal()),
+						rs.getString(RESOLVED.REQUEST_REASON.ordinal()),
+						rs.getString(RESOLVED.REQUEST_AMOUNT.ordinal()),
+						rs.getString(RESOLVED.CREATED_AT.ordinal())));
 			}
 			return resolvedReqByEmployee;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.error(c.getMessage());
 		}
 		return null;
 	}

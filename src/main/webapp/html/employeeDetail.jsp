@@ -10,20 +10,20 @@
 <title>Insert title here</title>
 </head>
 <%@ page import="com.gtrain.model.Employee" %>
-<% Employee employee = (Employee) request.getSession().getAttribute("pendingRequestByEmployee"); %>
+<% Employee employee = (Employee) request.getSession().getAttribute("employeeDetail"); %>
 
 <body class="container">
 
 	<div class="row">
 	
 	<h2>Employee Information</h2>
-		<div class="navbar">
+	<div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
 					<li><a  href="http://localhost:8080/ERS/html/manager.jsp" onclick="home();">Home</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/allEmployees.jsp" onclick="myEmployees();">My Employees</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/resolvedRequests.jsp" onclick="resolvedRequests();">Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/logout" onclick="logout();">Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/html/login.html" onclick="logout();">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,6 +56,9 @@
 		</tbody>	
 	</table>
 	</div>
+	
+<% %>
 <script type="text/javascript" src="../js/employeeDetail.js"></script>
+<script type="text/javascript" src="../js/managerRouting.js"></script>
 </body>
 </html>

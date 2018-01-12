@@ -1,6 +1,9 @@
 package com.gtrain.dao;
 import com.gtrain.model.Employee;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -14,6 +17,7 @@ import com.gtrain.util.ConnectionUtility;
 
 public class PendingReqDaoImpl implements PendingReqDao {
 	
+	private static Logger logger = Logger.getLogger(PendingReqDaoImpl.class);
 	
 	private static PendingReqDaoImpl pendingReqDaoImplementation;
 	
@@ -52,8 +56,10 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		return false;
 	}
@@ -80,8 +86,10 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			
 		} catch(SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		return false;
@@ -113,8 +121,10 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		return new PendingReq();
@@ -144,8 +154,10 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			return pendingRequests;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		return new ArrayList<>();
@@ -178,8 +190,10 @@ public class PendingReqDaoImpl implements PendingReqDao {
 			return pendingRequests;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		return new ArrayList<>();

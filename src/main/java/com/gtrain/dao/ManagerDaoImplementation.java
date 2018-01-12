@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import com.gtrain.util.ConnectionUtility;
 import com.gtrain.model.Manager;
@@ -13,6 +16,7 @@ import com.gtrain.model.Manager.MANAGER;
 
 public class ManagerDaoImplementation implements ManagerDao {
 
+	private static Logger logger = Logger.getLogger(ManagerDaoImplementation.class);
 	//Fully Tested, methods perform as intended
 	
 	private static ManagerDaoImplementation managerDaoImplementation;
@@ -53,8 +57,10 @@ public class ManagerDaoImplementation implements ManagerDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.error(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.warn(c);
 		}
 		
 		return false;
@@ -87,8 +93,10 @@ public class ManagerDaoImplementation implements ManagerDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		return outcome;
@@ -120,8 +128,10 @@ public class ManagerDaoImplementation implements ManagerDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		return new Manager();
 	}
@@ -147,8 +157,10 @@ public class ManagerDaoImplementation implements ManagerDao {
 			return managerList;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		
 		return new ArrayList<>();
@@ -173,8 +185,10 @@ public class ManagerDaoImplementation implements ManagerDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		return -1;
 	}
@@ -199,15 +213,12 @@ public class ManagerDaoImplementation implements ManagerDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} catch (ClassNotFoundException c) {
 			c.printStackTrace();
+			logger.debug(c);
 		}
 		return null;
 	}
 	
-	
-	public static void main(String[] args) {
-	
-		
-	}
 }

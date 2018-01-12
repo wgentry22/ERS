@@ -13,13 +13,13 @@
 	<div class="row">
 		<h2>Resolved Requests</h2>
 		
-		<div class="navbar">
+	<div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
 					<li><a  href="http://localhost:8080/ERS/html/manager.jsp" onclick="home();">Home</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/allEmployees.jsp" onclick="myEmployees();">My Employees</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/resolvedRequests.jsp" onclick="resolvedRequests();">Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/logout" onclick="logout();">Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/html/login.html" onclick="logout();">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,5 +42,6 @@
 	</table>
 	</div>
 <script type="text/javascript" src="../js/managerResolvedRequests.js"></script>
+<script type="text/javascript" src="../js/managerRouting.js"></script>
 </body>
 </html>

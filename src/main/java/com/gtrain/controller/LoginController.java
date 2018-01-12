@@ -1,6 +1,12 @@
 package com.gtrain.controller;
 
+import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 import com.gtrain.ajax.Role;
 import com.gtrain.model.Employee;
@@ -10,7 +16,11 @@ import com.gtrain.service.ManagerService;
 
 public class LoginController {
 
+	private static Logger logger = Logger.getLogger(LoginController.class);
+	
 	public static String login(HttpServletRequest req) {
+		
+		
 		
 		String username = req.getParameter("loginUsername");
 		String password = req.getParameter("loginPassword");
@@ -44,6 +54,26 @@ public class LoginController {
 		}		
 	}
 	
+	
+	public static String logout(HttpServletRequest req, HttpServletResponse resp) {
+		resp.setHeader("Cache-Control", "no-cache, no-store");
+		resp.setHeader("Pragma", "no-cache");
+		Enumeration<String> attr = req.getSession().getAttributeNames();
+		while (attr.hasMoreElements()) {
+			String name = attr.nextElement();
+			req.removeAttribute(name);
+		}
+		
+		req.getSession().invalidate();
+		try {
+			resp.sendRedirect("/html/login.html");
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.debug(e);
+			
+		}
+		return "/html/login.html";
+	}
 	
 	
 	

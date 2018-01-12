@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 import com.gtrain.model.Manager.MANAGER;
 
 import java.sql.ResultSet;
@@ -11,6 +13,8 @@ import java.sql.SQLException;
 
 public class ConnectionTest {
 
+	private static Logger logger = Logger.getLogger(ConnectionTest.class);
+	
 	static final String URL = "jdbc:oracle:thin:@jta1712.cyxofh0hm1of.us-east-2.rds.amazonaws.com:1521:ORCL";
 	static final String USERNAME = "adminERS";
 	static final String PASSWORD = "jta1712";
@@ -45,6 +49,7 @@ public class ConnectionTest {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			logger.debug(e);
 		} finally {
 			try {
 				rs.close();
@@ -52,6 +57,7 @@ public class ConnectionTest {
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				logger.debug(e);
 			}
 		}
 	}

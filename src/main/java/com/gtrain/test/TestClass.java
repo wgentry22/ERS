@@ -31,18 +31,24 @@ public class TestClass {
 //				.zipcode("30024")
 //				.build();
 		
-
-//		Employee employee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username("gtrainEmp").build());
-//		
-//		ObjectMapper mapper = new ObjectMapper();
-//		try {
-//			System.out.println(mapper.writeValueAsString(PendingReqDaoImpl.getInstance().selectAllByEmployee(employee)));
-//		} catch (JsonProcessingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+//		Employee demonstration = new Employee.EmployeeBuilder()
+//				.username("demonstrationEmployee")
+//				.password("gtrainnn")
+//				.firstname("InClass")
+//				.email("demonstration@test.com")
+//				.lastname("Demonstration")
+//				.address("456 Main Street")
+//				.city("Madeupsville")
+//				.state("Connecticut")
+//				.zipcode("12345")
+//				.build();
 		
-		Employee employee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username("gtrainEmp").build());
+		
+//		System.out.println(EmployeeService.getInstance().register(demonstration));
+
+//		Employee employee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username("demonstrationEmployee").build());
+
+		
 //		
 //		PendingReq test = new PendingReq(28);
 //		
@@ -54,9 +60,9 @@ public class TestClass {
 //		Manager m = ManagerDaoImplementation.getInstance().select(test2);
 
 
-		for (PendingReq p : PendingRequestService.getInstance().selectAll()) {
-			System.out.println(p);
-		}
+//		for (PendingReq p : PendingRequestService.getInstance().selectAll()) {
+//			System.out.println(p);
+//		}
 		
 		
 //		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAllByEmployee(employee)) {

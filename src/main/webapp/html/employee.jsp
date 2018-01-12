@@ -11,10 +11,10 @@
 </head>
 <body class="container">
 
-
-
+<%@ page import="com.gtrain.model.Employee" %>
+<% Employee employee = (Employee) request.getSession().getAttribute("authorizedUser"); %>
 	<div class="row">
-		<h2>Welcome to the Employee Reimbursement Portal</h2>
+		<h2>Welcome to the Employee Reimbursement Portal, <%= employee.getFirstname() %></h2>
 		
 		<div class="navbar">
 			<div class="navbar-header">
@@ -23,7 +23,7 @@
 					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/logout.do" onclick="logout();">Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/html/login.html" onclick="logout();">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -47,5 +47,6 @@
 	</table>
 	
 <script type="text/javascript" src="../js/employee.js"></script>
+<script type="text/javascript" src="../js/employeeRouting.js"></script>
 </body>
 </html>

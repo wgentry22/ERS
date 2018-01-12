@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gtrain.model.Employee;
 import com.gtrain.service.EmployeeService;
@@ -14,6 +16,8 @@ import com.gtrain.service.EmployeeService;
 
 public class EmployeeController {
 
+	private static Logger logger = Logger.getLogger(EmployeeController.class);
+	
 	public static String home(HttpServletRequest req) {
 		return "employee.jsp";
 	}
@@ -25,24 +29,28 @@ public class EmployeeController {
 	public static String update(HttpServletRequest req) {
 		
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			String json = req.getReader().readLine();
+			String firstname = req.getParameter("firstname");
+			String lastname = req.getParameter("lastname");
+			String email = req.getParameter("email");
+			String address = req.getParameter("address");
+			String city = req.getParameter("city");
+			String state = req.getParameter("state");
+			String zipcode = req.getParameter("zipcode");
+
 			
-			System.out.println(json);
 			
-			Employee employee =  mapper.readValue(json, Employee.class);
 			Employee currentEmployee = (Employee) req.getSession().getAttribute("authorizedUser");
 			Employee updated = new Employee.EmployeeBuilder()
 					.id(currentEmployee.getId())
 					.username(currentEmployee.getUsername())
 					.password(currentEmployee.getPassword())
-					.firstname(employee.getFirstname())
-					.lastname(employee.getLastname())
-					.email(employee.getEmail())
-					.address(employee.getAddress())
-					.city(employee.getCity())
-					.state(employee.getState())
-					.zipcode(employee.getZipcode())
+					.firstname(firstname)
+					.lastname(lastname)
+					.email(email)
+					.address(address)
+					.city(city)
+					.state(state)
+					.zipcode(zipcode)
 					.build();
 			
 			System.out.println("Update: " + updated);
@@ -53,9 +61,10 @@ public class EmployeeController {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.debug("Ensure all fields are not null");
 		}
 		
-		return "employee.jsp";
+		return "employeeInfo.jsp";
 	}
 	
 	

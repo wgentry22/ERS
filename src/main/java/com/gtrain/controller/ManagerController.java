@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gtrain.model.Employee;
 import com.gtrain.model.PendingReq;
@@ -13,6 +15,8 @@ import com.gtrain.service.PendingRequestService;
 
 public class ManagerController {
 
+	private static Logger logger = Logger.getLogger(ManagerController.class);
+	
 	public static String home(HttpServletRequest req) {
 		req.getSession().setAttribute("pendingRequestByEmployee", null);
 		return "/html/manager.jsp";
@@ -26,21 +30,29 @@ public class ManagerController {
 		return "/html/allEmployees.jsp";
 	}
 	
-	public static String goToEmployee(HttpServletRequest req) {
+	public static String setEmployee(HttpServletRequest req) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			String json = req.getReader().readLine();
-			System.out.println(json);
 			
-			Employee employee = EmployeeService.getInstance().getEmployee(mapper.readValue(json, Employee.class));
+			Employee temp = mapper.readValue(json, Employee.class);
+			Employee employee = EmployeeService.getInstance().getEmployee(temp);
+			
+			req.getSession().setAttribute("employeeDetail", employee);
+			
 			System.out.println(employee);
 			
-			req.getSession().setAttribute("pendingRequestByEmployee", employee);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			
+			logger.debug(e);
 		}
+		return "/html/employeeDetail.jsp";
+	}
+	
+	public static String goToEmployee(HttpServletRequest req) {
+		
 		return "/html/employeeDetail.jsp";
 	}
 }

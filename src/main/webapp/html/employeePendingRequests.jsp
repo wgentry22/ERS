@@ -10,34 +10,22 @@
 <title>Create Reimbursement Request</title>
 </head>
 <body class="container">
-	
-	<div class="navbar">
+	<div class="row">
+	<h2>Create Reimbursement Request</h2>
+		<div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
 					<li><a  href="http://localhost:8080/ERS/html/employee.jsp" onclick="myHome();">Home</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
 					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/logout" >Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/html/login.html">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
 	
-<div class="navbar">
-			<div class="navbar-header">
-				<ul class="nav navbar-nav" >
-					<li><a  href="http://localhost:8080/ERS/html/employee.jsp" onclick="myHome();">Home</a></li>
-					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
-					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/logout" >Log Out</a></li>
-				</ul>
-			</div>
-		</div>
-	
-	<div id="createPendingRequest" class="row well">
-		<form method="post" action="employeePendingRequests.html" >
-		<h2 id="pendingRequestHeader">Create Reimbursement Request</h2>
+	<div id="" class=" well">
+		<form method="post" action="/ERS/html/createPendingRequest.do" >
 		<div class="form-group row">
 		<div class="col-md-1">
 			<label for="requestAmount">Amount</label>
@@ -57,10 +45,9 @@
 		</div>
 		</form>
 	</div>
+	</div>
 	
 	
-	
-<script type="text/javascript" src="../js/employeePendingRequest.js"></script>
-<script type="text/javascript" src="../js/employee.js"></script>
+<script type="text/javascript" src="../js/employeeRouting.js"></script>
 </body>
 </html>

@@ -15,14 +15,19 @@ public class AjaxHelper {
 		switch(request.getRequestURI()) {
 		case "/ERS/populatePendingRequestTable.ajax":
 			return PendingRequestController.populate(request, response);
+			
 		case "/ERS/populateResolvedRequest.ajax":
 			return ResolvedRequestController.populate(request, response);
+			
 		case "/ERS/populateManagerPendingRequestTable.ajax":
 			return ManagerController.allRequests(request, response);
+			
 		case "/ERS/allEmployees.ajax":
 			return EmployeeController.all(request, response);
+			
 		case "/ERS/employeeDetailPendingRequest.ajax":
 			return PendingRequestController.populateEmployeeDetail(request, response);
+			
 		case "/ERS/populateManagerResolvedRequestTable.ajax":
 			return ResolvedRequestController.all(request, response);
 			

@@ -73,7 +73,7 @@ function resolve(row) {
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", "http://localhost:8080/ERS/html/managerCreateResolved.do");
 		xhr.send(JSON.stringify(resolvedRequest));
-		
+		window.location = "http://localhost:8080/ERS/html/employeeDetail.jsp";
 		
 		
 	} else {
@@ -96,37 +96,13 @@ function deny(row) {
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", "http://localhost:8080/ERS/html/managerCreateResolved.do");
 		xhr.send(JSON.stringify(resolvedRequest));
+		window.location = "http://localhost:8080/ERS/html/employeeDetail.jsp";
 	} else {
 		console.log("Do not create resolved request");
 	}
 }
 
 
-
-
-function myEmployees() {
-	var xhr = XMLHttpRequest();
-	xhr.open("POST", "http://localhost:8080/ERS/html/allEmployees.do");
-	xhr.send();
-	
-}
-
-function resolvedRequests() {
-	var xhr = XMLHttpRequest();
-	xhr.open("POST", "http://localhost:8080/ERS/html/allResolvedRequests.jsp");
-	xhr.send();
-}
-
-function home() {
-	var xhr = XMLHttpRequest();
-	xhr.open("POST", "http://localhost:8080/ERS/manager.do");
-}
-
-function logout() {
-	xhr = new XMLHttpRequest();
-	xhr.open("POST", "http://localhost:8080/ERS/logout.do");
-	xhr.send();
-}
 
 
 

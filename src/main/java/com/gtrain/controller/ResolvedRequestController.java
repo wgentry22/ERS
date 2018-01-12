@@ -3,6 +3,8 @@ package com.gtrain.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gtrain.model.Employee;
 import com.gtrain.model.Manager;
@@ -10,6 +12,8 @@ import com.gtrain.model.ResolvedReq;
 import com.gtrain.service.ResolvedRequestService;
 
 public class ResolvedRequestController {
+	
+	private static Logger logger = Logger.getLogger(ResolvedRequestController.class);
 
 	public static Object populate(HttpServletRequest req, HttpServletResponse resp) {
 		return ResolvedRequestService.getInstance().selectAllByEmployee((Employee) req.getSession().getAttribute("authorizedUser"));
@@ -35,6 +39,7 @@ public class ResolvedRequestController {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e);
 		}
 		
 		return "/html/manager.jsp";

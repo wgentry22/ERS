@@ -10,7 +10,7 @@
 </head>
 <body class="container">
 	<div class="row">
-		<h2>Welcome to the Manager Home Page</h2>
+		<h2>Welcome to the Manager Reimbursement Portal</h2>
 		
 	<div class="navbar">
 			<div class="navbar-header">
@@ -18,7 +18,7 @@
 					<li><a  href="http://localhost:8080/ERS/html/manager.jsp" onclick="home();">Home</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/allEmployees.jsp" onclick="myEmployees();">My Employees</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/resolvedRequests.jsp" onclick="resolvedRequests();">Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/logout" onclick="logout();">Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/html/login.html" onclick="logout();">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,5 +42,6 @@
 	
 	
 <script type="text/javascript" src="../js/manager.js"></script>
+<script type="text/javascript" src="../js/managerRouting.js"></script>
 </body>
 </html>
