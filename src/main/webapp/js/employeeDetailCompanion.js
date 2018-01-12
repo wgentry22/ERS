@@ -75,7 +75,7 @@ function resolve(row) {
 		xhr.send(JSON.stringify(resolvedRequest));
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 3) {	
-				window.location = "http://localhost:8080/ERS/html/resolvedRequest.jsp";
+				window.location = "http://localhost:8080/ERS/html/resolvedRequests.jsp";
 			}
 		}
 	} else {
@@ -107,10 +107,3 @@ function deny(row) {
 		console.log("Do not create resolved request");
 	}
 }
-
-
-
-
-
-
-

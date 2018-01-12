@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,11 +134,45 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 		return null;
 	}
 	
+	
+	public List<ResolvedReq> selectAllResolvedRequests() {
+		List<ResolvedReq> list = new ArrayList<ResolvedReq>();
+		
+		try (Connection conn = ConnectionUtility.getConnection()) {
+			
+			String sql = "select * from resolved_request";
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				list.add(new ResolvedReq(
+						rs.getInt(RESOLVED.ID.ordinal()),
+						rs.getInt(RESOLVED.PENDID.ordinal()),
+						rs.getInt(RESOLVED.MANAGERID.ordinal()),
+						rs.getString(RESOLVED.MANAGERNAME.ordinal()),
+						rs.getString(RESOLVED.STATUS.ordinal()),
+						rs.getString(RESOLVED.RESOLVED_AT.ordinal())));
+			}
+			return list;
+		} catch (SQLException e) {
+			logger.debug(e);
+		} catch (ClassNotFoundException c) {
+			logger.debug(c);
+		}
+		
+		
+		return null;
+	}
+	
 	@Override
 	public List<ResolvedReq> selectAll() {
 
 		try (Connection conn = ConnectionUtility.getConnection()) {
-			String query = "select * from resolved_request";
+			
+			String query = "select r.res_req_id, r.pend_req_id, r.res_m_id, r.res_m_name, r.res_status, r.resolved_at, p.req_reason, p.req_amount, p.created_at"
+					+ " from pending_request p inner join resolved_request r on p.pend_req_id = r.pend_req_id order by r.res_req_id";
 			
 			PreparedStatement p = conn.prepareStatement(query);
 			
@@ -152,7 +187,10 @@ public class ResolvedReqDaoImpl implements ResolvedReqDao {
 						rs.getInt(RESOLVED.MANAGERID.ordinal()),
 						rs.getString(RESOLVED.MANAGERNAME.ordinal()),
 						rs.getString(RESOLVED.STATUS.ordinal()),
-						rs.getString(RESOLVED.RESOLVED_AT.ordinal())));
+						rs.getString(RESOLVED.RESOLVED_AT.ordinal()),
+						rs.getString(RESOLVED.REQUEST_REASON.ordinal()),
+						rs.getString(RESOLVED.REQUEST_AMOUNT.ordinal()),
+						rs.getString(RESOLVED.CREATED_AT.ordinal())));
 			}
 			return resolvedRequests;
 		} catch (SQLException e) {

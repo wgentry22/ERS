@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Employee Detail</title>
 </head>
 <%@ page import="com.gtrain.model.Employee" %>
 <% Employee employee = (Employee) request.getSession().getAttribute("employeeDetail"); %>
@@ -58,7 +60,7 @@
 	</div>
 	
 <% %>
-<script type="text/javascript" src="../js/employeeDetail.js"></script>
+<script type="text/javascript" src="../js/employeeDetailCompanion.js"></script>
 <script type="text/javascript" src="../js/managerRouting.js"></script>
 </body>
 </html>

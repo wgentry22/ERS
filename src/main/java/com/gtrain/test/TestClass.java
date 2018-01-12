@@ -59,24 +59,27 @@ public class TestClass {
 //		
 //		Manager m = ManagerDaoImplementation.getInstance().select(test2);
 
-
-//		for (PendingReq p : PendingRequestService.getInstance().selectAll()) {
-//			System.out.println(p);
-//		}
+		System.out.println("Selecting all Employees from DB");
+		for (Employee e : EmployeeService.getInstance().getAllEmployees()) {
+			System.out.println(e);
+		}
+		System.out.println("=====================================================");
+		System.out.println("Selecting all Managers from DB");
+		for (Manager m : ManagerDaoImplementation.getInstance().selectAll()) {
+			System.out.println(m);
+		}
+		System.out.println("=====================================================");
+		System.out.println("Selecting all Pending Requests from DB");
+		for (PendingReq p : PendingRequestService.getInstance().selectAll()) {
+			System.out.println(p);
+		}
+		System.out.println("=====================================================");
+		System.out.println("Selecting all ResolvedRequests from DB");
+		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAll()) {
+			System.out.println(r);
+		}
 		
 		
-//		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAllByEmployee(employee)) {
-//			System.out.println(r);
-//		}
-
-		
-//		for (ResolvedReq r : ResolvedRequestService.getInstance().selectAll()) {
-//			System.out.println(r);
-//		}
-		
-//		for (Manager m : ManagerDaoImplementation.getInstance().selectAll()) {
-//			System.out.println(m);
-//		}
 		
 	}
 

@@ -20,26 +20,29 @@ function addRows(ajaxObject) {
 	for (var i = 0; i < ajaxObject.length; i++) {
 		var tr = document.createElement("tr");
 		var tdResId = document.createElement("td");
-		var tdPendId = document.createElement("td");
-		var tdManName = document.createElement("td");
+		var tdReqReason = document.createElement("td");
+		var tdReqAmount = document.createElement("td");
+		var tdTimeCreated = document.createElement("td");
 		var tdStatus = document.createElement("td");
-		var tdTime = document.createElement("td");
-		
-		
+		var tdResolvingManager = document.createElement("td");
+		var tdTimeResolved = document.createElement("td");
 		
 		tdResId.textContent = ajaxObject[i].resolvedRequestId;
-		tdPendId.textContent = ajaxObject[i].pendingRequestId;
-		tdManName.textContent = ajaxObject[i].resolvingManagerName;
+		tdReqReason.textContent = ajaxObject[i].requestReason;
+		tdReqAmount.textContent = ajaxObject[i].requestAmount;
+		tdTimeCreated.textContent = ajaxObject[i].timeRequestWasCreated;
 		tdStatus.textContent = ajaxObject[i].resolvedStatus;
-		tdTime.textContent = ajaxObject[i].timeRequestWasResolved;
+		tdResolvingManager.textContent = ajaxObject[i].resolvingManagerName;
+		tdTimeResolved.textContent = ajaxObject[i].timeRequestWasResolved;
 		
 		tr.appendChild(tdResId);
-		tr.appendChild(tdPendId);
-		tr.appendChild(tdManName);
+		tr.appendChild(tdReqReason);
+		tr.appendChild(tdReqAmount);
+		tr.appendChild(tdTimeCreated);
 		tr.appendChild(tdStatus);
-		tr.appendChild(tdTime);
+		tr.appendChild(tdResolvingManager);
+		tr.appendChild(tdTimeResolved);
 		
 		document.getElementById("tblCurrentResolvedRequests").appendChild(tr);
 	}
 }
-

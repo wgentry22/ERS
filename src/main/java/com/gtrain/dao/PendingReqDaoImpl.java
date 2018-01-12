@@ -1,16 +1,16 @@
 package com.gtrain.dao;
-import com.gtrain.model.Employee;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
-import java.sql.CallableStatement;
-
+import com.gtrain.model.Employee;
 import com.gtrain.model.PendingReq;
 import com.gtrain.model.PendingReq.PENDING;
 import com.gtrain.util.ConnectionUtility;
@@ -131,6 +131,38 @@ public class PendingReqDaoImpl implements PendingReqDao {
 	}
 	
 
+	
+	public List<PendingReq> selectAllPendingRequests() {
+		List<PendingReq> list = new ArrayList<PendingReq>();
+		
+		try (Connection conn = ConnectionUtility.getConnection()) {
+			
+			String sql = "select * from pending_request";
+			
+			Statement stmt = conn.createStatement();
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				list.add(new PendingReq(
+						rs.getInt(PENDING.ID.ordinal()),
+						rs.getInt(PENDING.EMPID.ordinal()),
+						rs.getString(PENDING.AMOUNT.ordinal()),
+						rs.getString(PENDING.REASON.ordinal()),
+						rs.getString(PENDING.CREATED_AT.ordinal())
+						));
+			}
+			return list;
+		} catch (SQLException e) {
+			logger.debug(e);
+		} catch (ClassNotFoundException c) {
+			logger.debug(c);
+		}
+		return null;
+	}
+	
+	
+	
 	@Override
 	public List<PendingReq> selectAll() {
 		try (Connection conn = ConnectionUtility.getConnection()) {

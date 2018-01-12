@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -25,14 +27,16 @@
 		</div>
 	
 	
-	<h2>Current Pending Requests</h2>
+	<h2>All Resolved Requests</h2>
 	<table class="table table-bordered table-striped table-hover">
 		<thead class="table-header">
 			<tr>
 				<th scope="col">Resolved Request ID</th>
-				<th scope="col">Pending Request ID</th>
-				<th scope="col">Resolving Manager</th>
+				<th scope="col">Request Reason</th>
+				<th scope="col">Request Amount</th>
+				<th scope="col">Time Created</th>
 				<th scope="col">Status</th>
+				<th scope="col">Resolving Manager</th>
 				<th scope="col">Time Resolved</th>
 			</tr>		
 		</thead>
@@ -41,7 +45,7 @@
 		</tbody>	
 	</table>
 	</div>
-<script type="text/javascript" src="../js/managerResolvedRequests.js"></script>
+<script type="text/javascript" src="../js/managerResolvedRequestsView.js"></script>
 <script type="text/javascript" src="../js/managerRouting.js"></script>
 </body>
 </html>

@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../styles/employee.css">
+
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -36,7 +37,7 @@
 		<div class="col-md-1">
 			<label for="requestReason">Reason</label>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<input name="requestReason" id="requestReason" type="text" class="form-control" required placeholder="Brief Description" />
 		</div>
 		<div class="col-md-1">
