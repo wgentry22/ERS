@@ -61,18 +61,18 @@ public class LoginController {
 		Enumeration<String> attr = req.getSession().getAttributeNames();
 		while (attr.hasMoreElements()) {
 			String name = attr.nextElement();
-			req.removeAttribute(name);
+			req.getSession().removeAttribute(name);
 		}
 		
 		req.getSession().invalidate();
 		try {
-			resp.sendRedirect("/html/login.html");
+			resp.sendRedirect("/ERS");
 		} catch (IOException e) {
 			e.printStackTrace();
 			logger.debug(e);
 			
 		}
-		return "/html/login.html";
+		return "";
 	}
 	
 	

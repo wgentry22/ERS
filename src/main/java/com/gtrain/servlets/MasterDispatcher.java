@@ -47,7 +47,7 @@ public class MasterDispatcher {
 		case "/ERS/html/managerCreateResolved.do":
 			return ResolvedRequestController.create(req);
 			
-		case "/ERS/html/logout.do":
+		case "/ERS/logout.do":
 			return LoginController.logout(req, resp);
 		
 		default: return "404.jsp";

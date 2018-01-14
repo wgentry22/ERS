@@ -25,7 +25,7 @@ function myResolvedRequests() {
 
 function logout() {
 	xhr = new XMLHttpRequest();
-	xhr.open("GET", "http://localhost:8080/ERS/html/logout.do");
+	xhr.open("POST", "http://localhost:8080/ERS/logout.do");
 	xhr.send();
 }
 

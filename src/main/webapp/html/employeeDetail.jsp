@@ -25,7 +25,7 @@
 					<li><a  href="http://localhost:8080/ERS/html/manager.jsp" onclick="home();">Home</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/allEmployees.jsp" onclick="myEmployees();">My Employees</a></li>
 					<li><a  href="http://localhost:8080/ERS/html/resolvedRequests.jsp" onclick="resolvedRequests();">Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/html/login.html" onclick="logout();">Log Out</a></li>
+					<li><a href="http://localhost:8080/ERS/" onclick="logout();">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
