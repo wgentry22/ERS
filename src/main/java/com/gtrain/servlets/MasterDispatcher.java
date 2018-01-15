@@ -17,25 +17,31 @@ public class MasterDispatcher {
 		case "/ERS/html/login.do":
 			return LoginController.login(req);
 			
-		case "/ERS/html/employee.do":
+		case "/ERS/html/employee.do":					//Employee Homepage
 			return EmployeeController.home(req);
 			
-		case "/ERS/html/manager.do":
+		case "/ERS/html/manager.do":					//Manager homepage
 			return ManagerController.home(req);
 			
-		case "/ERS/html/employeeInfo.do":
+		case "/ERS/html/employeeInfo.do": 				//Employee show personal info
 			return EmployeeController.info(req);
 			
-		case "/ERS/html/updateEmployeeInformation.do":
+		case "/ERS/html/updateEmployeeInformation.do":	//Employee update personal info
 			return EmployeeController.update(req);
 			
-		case "/ERS/html/createPendingRequest.do":
+		case "/ERS/html/employeePendingRequests.do":	//Employee pending request form
+			return EmployeeController.pending(req);
+			
+		case "/ERS/html/employeeResolvedRequest.do":	//Employee view Resolved 
+			return EmployeeController.resolved(req);
+			
+		case "/ERS/html/createPendingRequest.do":		//Employee create pending request
 			return PendingRequestController.create(req);
 			
-		case "/ERS/html/resolvedRequests.do":
+		case "/ERS/html/resolvedRequests.do":			//Manager all resolved 
 			return ResolvedRequestController.show(req);
 			
-		case "/ERS/html/allEmployees.do":
+		case "/ERS/html/allEmployees.do":				//Manager all employees
 			return ManagerController.showEmployees(req);
 			
 		case "/ERS/html/managerViewOfEmployeeInRow.do":
@@ -48,7 +54,7 @@ public class MasterDispatcher {
 			return ResolvedRequestController.create(req);
 			
 		case "/ERS/logout.do":
-			return LoginController.logout(req, resp);
+			return LoginController.logout(req);
 		
 		default: return "404.jsp";
 		}

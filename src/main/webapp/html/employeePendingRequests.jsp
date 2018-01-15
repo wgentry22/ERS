@@ -16,11 +16,11 @@
 		<div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
-					<li><a  href="http://localhost:8080/ERS/html/employee.jsp" onclick="myHome();">Home</a></li>
-					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.jsp" onclick="myInfo();">My Information</a></li>
-					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.jsp" onclick="myResolvedRequests();">My Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.jsp" onclick="myPendingRequests();" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/" onclick="logout();">Log Out</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/employee.do">Home</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.do" >My Information</a></li>
+					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.do">My Resolved Requests</a></li>
+					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.do" >Create Request</a>
+					<li><a href="http://localhost:8080/ERS/logout.do" >Log Out</a></li>
 				</ul>
 			</div>
 		</div>

@@ -24,7 +24,7 @@ public class PendingRequestController {
 	}
 	
 	public static String create(HttpServletRequest req) {
-		
+		System.out.println("Creating Pending Request");
 		try {
 			Employee employee = (Employee) req.getSession().getAttribute("authorizedUser");
 			String amount = req.getParameter("requestAmount");

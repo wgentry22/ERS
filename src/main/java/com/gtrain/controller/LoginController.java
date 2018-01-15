@@ -52,47 +52,34 @@ public class LoginController {
 //		}
 		
 		
-		if (Role.isManager(username)) {
-			if (ManagerService.getInstance().login(new Manager(username, password))) {
+		if (Role.isManager(username) && ManagerService.getInstance().login(new Manager(username, password))) {
 				Manager authorizedManager = ManagerService.getInstance().getManager(new Manager(username));
 				req.getSession().setAttribute("authorizedUser", authorizedManager);
+				System.out.println("Forwarding to /html/manager.do");
 				return "/html/manager.do";
-			} else {
-				System.out.println("Invalid Manager Credentials");
-				return "/";
-			}
-		} else if (Role.isEmployee(username)) {
-			if (EmployeeService.getInstance().login(new Employee.EmployeeBuilder().username(username).password(password).build())) {
+			
+		} else if (Role.isEmployee(username)&& EmployeeService.getInstance().login(new Employee.EmployeeBuilder().username(username).password(password).build())) {
 				Employee authorizedEmployee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username(username).build());
 				req.getSession().setAttribute("authorizedUser", authorizedEmployee);
+				System.out.println("Forwarding to /html/employee.do");
 				return "/html/employee.do";
-			} else {
-				System.out.println("Invalid Employee Credentials");
-				return "/";
-			}
 		} else {
-			return "/";
+			System.out.println("Invalid Credentials");
+			return "login.html";
 		}
 	}
 	
 	
-	public static String logout(HttpServletRequest req, HttpServletResponse resp) {
-		try {
+	public static String logout(HttpServletRequest req) {
 			Enumeration<String> attr = req.getSession().getAttributeNames();
 			while (attr.hasMoreElements()) {
 				String name = attr.nextElement();
-				req.getSession().removeAttribute(name);
+				System.out.println(name + ": " + req.getSession().getAttribute(name));
+				
 			}
 			req.getSession().invalidate();
-			resp.setHeader("Cache-Control", "no-cache, no-store");
-			resp.setHeader("Pragma", "no-cache");
-			resp.sendRedirect("/ERS");
-		} catch (IOException e) {
-			e.printStackTrace();
-			logger.debug(e);
 			
-		}
-		return "";
+		return "/";
 	}
 	
 	

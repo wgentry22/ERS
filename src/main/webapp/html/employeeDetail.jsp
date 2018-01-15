@@ -19,13 +19,13 @@
 	<div class="row">
 	
 	<h2>Employee Information</h2>
-	<div class="navbar">
+		<div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
-					<li><a  href="http://localhost:8080/ERS/html/manager.jsp" onclick="home();">Home</a></li>
-					<li><a  href="http://localhost:8080/ERS/html/allEmployees.jsp" onclick="myEmployees();">My Employees</a></li>
-					<li><a  href="http://localhost:8080/ERS/html/resolvedRequests.jsp" onclick="resolvedRequests();">Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/" onclick="logout();">Log Out</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/manager.do" >Home</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/allEmployees.do">My Employees</a></li>
+					<li><a  href="http://localhost:8080/ERS/html/resolvedRequests.do" >Resolved Requests</a></li>
+					<li><a href="http://localhost:8080/ERS/logout.do">Log Out</a></li>
 				</ul>
 			</div>
 		</div>

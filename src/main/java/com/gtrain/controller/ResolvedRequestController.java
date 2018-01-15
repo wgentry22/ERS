@@ -46,7 +46,8 @@ public class ResolvedRequestController {
 	}
 	
 	public static String show (HttpServletRequest req) {
-		return "/employeeResolvedRequest.jsp";
+		System.out.println("Showing resolved requests");
+		return "/html/resolvedRequests.jsp";
 	}
 	
 	public static Object all(HttpServletRequest req, HttpServletResponse resp) {

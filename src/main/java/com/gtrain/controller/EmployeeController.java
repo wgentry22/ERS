@@ -24,11 +24,12 @@ public class EmployeeController {
 	}
 	
 	public static String info(HttpServletRequest req) {
+		System.out.println("Entering employeeInfo.do");
 		return "employeeInfo.jsp";
 	}
 	
 	public static String update(HttpServletRequest req) {
-		
+		System.out.println("Updating employee info");
 		try {
 			String firstname = req.getParameter("firstname");
 			String lastname = req.getParameter("lastname");
@@ -72,6 +73,16 @@ public class EmployeeController {
 	
 	public static List<Employee> all(HttpServletRequest req, HttpServletResponse resp) {
 		return EmployeeService.getInstance().getAllEmployees();
+	}
+	
+	public static String pending(HttpServletRequest req) {
+		System.out.println("Entering employeePendingRequests.do");
+		return "employeePendingRequests.jsp";
+	}
+	
+	public static String resolved(HttpServletRequest req) {
+		System.out.println("Entering employeeResolvedRequest.do");
+		return "employeeResolvedRequest.jsp";
 	}
 }
 

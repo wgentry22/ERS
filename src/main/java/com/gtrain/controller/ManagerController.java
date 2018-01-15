@@ -28,6 +28,7 @@ public class ManagerController {
 	}
 	
 	public static String showEmployees(HttpServletRequest req) {
+		System.out.println("Entering all employees");
 		return "/html/allEmployees.jsp";
 	}
 	
