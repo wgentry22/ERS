@@ -27,12 +27,12 @@ public class ManagerService {
 		return ManagerDaoImplementation.getInstance().selectAll();
 	}
 	
-	public Manager login(Manager manager) {
+	public boolean login(Manager manager) {
 		Manager authorized = ManagerDaoImplementation.getInstance().select(manager);
 		if (authorized.getPassword().equals(ManagerDaoImplementation.getInstance().getManagerHash(manager))) {
-			return authorized;
+			return true;
 		} else {
-			return null;
+			return false;
 		}
 	}
 

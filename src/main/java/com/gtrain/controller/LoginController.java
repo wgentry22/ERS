@@ -20,7 +20,7 @@ public class LoginController {
 	
 	public static String login(HttpServletRequest req) {
 		
-		
+		System.out.println("Entered login.do");
 		
 		String username = req.getParameter("loginUsername");
 		String password = req.getParameter("loginPassword");
@@ -32,40 +32,60 @@ public class LoginController {
 		
 		
 		//Determines which set of pages to redirect
+//		if (Role.isManager(username)) {
+//			if (ManagerService.getInstance().login(new Manager(username, password)) instanceof Manager) {
+//				Manager authorizedManager = ManagerService.getInstance().getManager(new Manager(username, password));
+//				req.getSession().setAttribute("authorizedUser", authorizedManager);
+//				return "/html/manager.do";
+//			} else {
+//				return "/html/login.html";
+//			}
+//		} else {
+//			if (EmployeeService.getInstance().login(new Employee.EmployeeBuilder().username(username).password(password).build()) instanceof Employee) {
+//				Employee authorizedEmployee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username(username).build());
+//				req.getSession().setAttribute("authorizedUser", authorizedEmployee);
+//				
+//				return "/html/employee.do";
+//			} else {
+//				return "/html/login.html";
+//			}
+//		}
+		
+		
 		if (Role.isManager(username)) {
-			Manager authorizedManager = null;
-			if (ManagerService.getInstance().login(new Manager(username, password)) instanceof Manager) {
-				authorizedManager = ManagerService.getInstance().getManager(new Manager(username, password));
+			if (ManagerService.getInstance().login(new Manager(username, password))) {
+				Manager authorizedManager = ManagerService.getInstance().getManager(new Manager(username));
 				req.getSession().setAttribute("authorizedUser", authorizedManager);
 				return "/html/manager.do";
 			} else {
-				return "login.html";
+				System.out.println("Invalid Manager Credentials");
+				return "/";
 			}
-		} else {
-			Employee authorizedEmployee = null;
-			if (EmployeeService.getInstance().login(new Employee.EmployeeBuilder().username(username).password(password).build()) instanceof Employee) {
-				authorizedEmployee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username(username).build());
+		} else if (Role.isEmployee(username)) {
+			if (EmployeeService.getInstance().login(new Employee.EmployeeBuilder().username(username).password(password).build())) {
+				Employee authorizedEmployee = EmployeeService.getInstance().getEmployee(new Employee.EmployeeBuilder().username(username).build());
 				req.getSession().setAttribute("authorizedUser", authorizedEmployee);
-				
 				return "/html/employee.do";
 			} else {
-				return "login.html";
+				System.out.println("Invalid Employee Credentials");
+				return "/";
 			}
-		}		
+		} else {
+			return "/";
+		}
 	}
 	
 	
 	public static String logout(HttpServletRequest req, HttpServletResponse resp) {
-		resp.setHeader("Cache-Control", "no-cache, no-store");
-		resp.setHeader("Pragma", "no-cache");
-		Enumeration<String> attr = req.getSession().getAttributeNames();
-		while (attr.hasMoreElements()) {
-			String name = attr.nextElement();
-			req.getSession().removeAttribute(name);
-		}
-		
-		req.getSession().invalidate();
 		try {
+			Enumeration<String> attr = req.getSession().getAttributeNames();
+			while (attr.hasMoreElements()) {
+				String name = attr.nextElement();
+				req.getSession().removeAttribute(name);
+			}
+			req.getSession().invalidate();
+			resp.setHeader("Cache-Control", "no-cache, no-store");
+			resp.setHeader("Pragma", "no-cache");
 			resp.sendRedirect("/ERS");
 		} catch (IOException e) {
 			e.printStackTrace();

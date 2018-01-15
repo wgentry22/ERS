@@ -40,12 +40,12 @@ public class EmployeeService {
 		return EmployeeDaoImplementation.getInstance().selectId(employee);
 	}
 	
-	public Employee login(Employee employee) {
+	public boolean login(Employee employee) {
 		Employee authorized = EmployeeDaoImplementation.getInstance().select(employee);
 		if (authorized.getPassword().equals(EmployeeDaoImplementation.getInstance().getEmployeeHash(employee))) {
-			return authorized;
+			return true;
 		} else {
-			return null;
+			return false;
 		}
 	}
 	

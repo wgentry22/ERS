@@ -19,7 +19,8 @@ public class EmployeeController {
 	private static Logger logger = Logger.getLogger(EmployeeController.class);
 	
 	public static String home(HttpServletRequest req) {
-		return "employee.jsp";
+		System.out.println("Entering employee.do");
+		return "/html/employee.jsp";
 	}
 	
 	public static String info(HttpServletRequest req) {

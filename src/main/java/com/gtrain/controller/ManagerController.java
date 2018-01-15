@@ -18,6 +18,7 @@ public class ManagerController {
 	private static Logger logger = Logger.getLogger(ManagerController.class);
 	
 	public static String home(HttpServletRequest req) {
+		System.out.println("Entering manager.do");
 		req.getSession().setAttribute("pendingRequestByEmployee", null);
 		return "/html/manager.jsp";
 	}
