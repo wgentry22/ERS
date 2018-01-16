@@ -45,7 +45,7 @@
 	</div>
 	
 	
-<script type="text/javascript" src="../js/manager.js"></script>
+<script type="text/javascript" src="../js/managerCompanion.js"></script>
 <script type="text/javascript" src="../js/managerRouting.js"></script>
 </body>
 </html>

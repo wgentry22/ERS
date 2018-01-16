@@ -47,7 +47,7 @@
 		</tbody>	
 	</table>
 	
-<script type="text/javascript" src="../js/employee.js"></script>
+<script type="text/javascript" src="../js/employeeCompanion.js"></script>
 <!--<script type="text/javascript" src="../js/employeeRouting.js"></script>-->
 </body>
 </html>
