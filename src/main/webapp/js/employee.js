@@ -13,7 +13,7 @@ function populateTable() {
 			addRows(ajaxObject);
 		}
 	};
-	xhr.open("POST", "http://localhost:8080/ERS/populatePendingRequestTable.ajax");
+	xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/populatePendingRequestTable.ajax");
 	xhr.send();
 };
 

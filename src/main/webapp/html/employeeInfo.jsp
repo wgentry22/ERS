@@ -17,11 +17,11 @@
 		<div class="navbar">
 			<div class="navbar-header">
 				<ul class="nav navbar-nav" >
-					<li><a  href="http://localhost:8080/ERS/html/employee.do">Home</a></li>
-					<li><a  href="http://localhost:8080/ERS/html/employeeInfo.do" >My Information</a></li>
-					<li><a href="http://localhost:8080/ERS/html/employeeResolvedRequest.do">My Resolved Requests</a></li>
-					<li><a href="http://localhost:8080/ERS/html/employeePendingRequests.do" >Create Request</a>
-					<li><a href="http://localhost:8080/ERS/logout.do" >Log Out</a></li>
+					<li><a  href="http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/employee.do">Home</a></li>
+					<li><a  href="http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/employeeInfo.do" >My Information</a></li>
+					<li><a href="http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/employeeResolvedRequest.do">My Resolved Requests</a></li>
+					<li><a href="http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/employeePendingRequests.do" >Create Request</a>
+					<li><a href="http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/logout.do" >Log Out</a></li>
 				</ul>
 			</div>
 		</div>

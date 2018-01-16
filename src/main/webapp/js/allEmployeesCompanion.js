@@ -10,7 +10,7 @@ function getAllEmployees() {
 			addRows(JSON.parse(xhr.responseText));
 		}
 	};
-	xhr.open("POST", "http://localhost:8080/ERS/allEmployees.ajax");
+	xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/allEmployees.ajax");
 	xhr.send();
 };
 
@@ -46,12 +46,12 @@ function getUsername(row) {
 	emp.username = username;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "http://localhost:8080/ERS/html/managerViewOfEmployeeInRow.do");
+	xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/managerViewOfEmployeeInRow.do");
 	xhr.send(JSON.stringify(emp));
 	
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 3) {
-			window.location = "http://localhost:8080/ERS/html/goToEmployeeDetail.do";
+			window.location = "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/goToEmployeeDetail.do";
 		}
 	}
 	

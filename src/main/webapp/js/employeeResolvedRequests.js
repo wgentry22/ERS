@@ -11,7 +11,7 @@ function populateResolvedTable() {
 			
 		}
 	};
-	xhr.open("POST", "http://localhost:8080/ERS/populateResolvedRequest.ajax");
+	xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/populateResolvedRequest.ajax");
 	xhr.send();
 }
 

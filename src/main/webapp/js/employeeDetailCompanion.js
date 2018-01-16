@@ -11,7 +11,7 @@ function populateEmployeeDetailTable() {
 			addRows(ajaxObject);
 		}
 	};
-	xhr.open("POST", "http://localhost:8080/ERS/employeeDetailPendingRequest.ajax");
+	xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/employeeDetailPendingRequest.ajax");
 	xhr.send();
 };
 
@@ -71,11 +71,11 @@ function resolve(row) {
 		resolvedRequest.resolvedStatus = "Resolved";
 		
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "http://localhost:8080/ERS/html/managerCreateResolved.do");
+		xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/managerCreateResolved.do");
 		xhr.send(JSON.stringify(resolvedRequest));
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 3) {	
-				window.location = "http://localhost:8080/ERS/html/resolvedRequests.jsp";
+				window.location = "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/resolvedRequests.jsp";
 			}
 		}
 	} else {
@@ -96,11 +96,11 @@ function deny(row) {
 		resolvedRequest.resolvedStatus = "Denied";
 		
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "http://localhost:8080/ERS/html/managerCreateResolved.do");
+		xhr.open("POST", "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/managerCreateResolved.do");
 		xhr.send(JSON.stringify(resolvedRequest));
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 3) {	
-				window.location = "http://localhost:8080/ERS/html/resolvedRequests.jsp";
+				window.location = "http://ec2-52-90-166-210.compute-1.amazonaws.com:8080/ERS/html/resolvedRequests.jsp";
 			}
 		}
 	} else {
